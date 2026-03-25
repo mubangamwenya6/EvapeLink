@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EduLink – Homework Policy Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<!-- ── LOGIN / REGISTER SCREEN ── -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">Edu<span>Link</span></div>
+    <div class="login-tagline">HOMEWORK POLICY PLATFORM</div>
+
+    <!-- Tab switcher -->
+    <div class="auth-tabs">
+      <button class="auth-tab" id="tab-login"    onclick="showAuthTab('login')">Sign In</button>
+      <button class="auth-tab" id="tab-register" onclick="showAuthTab('register')">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="login-form">
+      <input class="login-input" type="email"    id="login-email"    placeholder="Email"/>
+      <input class="login-input" type="password" id="login-password" placeholder="Password"/>
+      <button class="btn-login" onclick="doLogin()">Sign In →</button>
+      <div class="demo-hint" id="demo-hint">
+        Demo: admin@evapelink.com / admin123 &nbsp;|&nbsp; parent@evapelink.com / parent123 &nbsp;|&nbsp; student@evapelink.com / student123
+      </div>
+      <div id="login-error" class="login-error"></div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="register-form" style="display:none">
+      <div class="form-group" style="margin-bottom:14px">
+        <label style="font-size:.8rem;font-weight:600;color:var(--muted);display:block;margin-bottom:8px">I am a…</label>
+        <div class="reg-role-grid">
+          <button class="reg-role-btn active" data-role="student"  onclick="selectRegisterRole(this)"><span class="icon">🧑‍🎓</span>Student</button>
+          <button class="reg-role-btn"        data-role="parent"   onclick="selectRegisterRole(this)"><span class="icon">👨‍👩‍👧</span>Parent</button>
+          <button class="reg-role-btn"        data-role="teacher"  onclick="selectRegisterRole(this)"><span class="icon">🧑‍🏫</span>Teacher</button>
+        </div>
+      </div>
+      <input class="login-input" type="email"    id="reg-email"     placeholder="Email address"/>
+      <input class="login-input" type="password" id="reg-password"  placeholder="Password (min. 6 characters)"/>
+      <input class="login-input" type="password" id="reg-password2" placeholder="Confirm password"/>
+      <button class="btn-login" onclick="doRegister()">Create Account →</button>
+      <div id="register-error" class="login-error"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── APP SHELL ── -->
+<div id="app">
+  <div class="sidebar">
+    <div class="sidebar-logo">Edu<span>Link</span></div>
+    <div class="sidebar-role" id="sidebar-role-label">Teacher Portal</div>
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    <div class="sidebar-footer">
+      <div class="user-pill">
+        <div class="user-avatar" id="user-avatar">MB</div>
+        <div>
+          <div class="user-name" id="user-name-display">User</div>
+          <div class="user-meta" id="user-role-display">Role</div>
+        </div>
+      </div>
+      <button class="btn-logout" onclick="doLogout()">⬅ Sign out</button>
+    </div>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-right" id="topbar-actions"></div>
+    </div>
+    <div class="content" id="main-content"></div>
+  </div>
+</div>
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-title"  id="modal-title"></div>
+    <div id="modal-body"></div>
+    <div class="modal-actions" id="modal-actions"></div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
