@@ -3,3 +3,4 @@
 // Deployed:    change to your Render/Railway URL e.g. https://evapelink-backend.onrender.com
 // ─────────────────────────────────────────────────────────────────────────────
 export const API = "http://localhost:5000";
+export const API = "https://evapelink-backend.onrender.com"
